@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" role="img" aria-label="Fluxo: código no Git, container no Docker, execução no Kubernetes">
+<rect width="800" height="220" rx="16" fill="#0d1117"/>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7ee787"/></marker></defs>
+<g font-family="monospace" text-anchor="middle">
+<rect x="40" y="55" width="200" height="110" rx="12" fill="#161b22" stroke="#7ee787" stroke-width="3"/>
+<text x="140" y="105" font-size="30" fill="#7ee787" font-weight="bold">Git</text><text x="140" y="140" font-size="16" fill="#8b949e">código</text>
+<rect x="300" y="55" width="200" height="110" rx="12" fill="#161b22" stroke="#58a6ff" stroke-width="3"/>
+<text x="400" y="105" font-size="30" fill="#58a6ff" font-weight="bold">Docker</text><text x="400" y="140" font-size="16" fill="#8b949e">container</text>
+<rect x="560" y="55" width="200" height="110" rx="12" fill="#161b22" stroke="#d2a8ff" stroke-width="3"/>
+<text x="660" y="105" font-size="28" fill="#d2a8ff" font-weight="bold">Kubernetes</text><text x="660" y="140" font-size="16" fill="#8b949e">cluster</text>
+</g>
+<path d="M245 110H292" stroke="#7ee787" stroke-width="4" marker-end="url(#a)"/>
+<path d="M505 110H552" stroke="#7ee787" stroke-width="4" marker-end="url(#a)"/>
+</svg>

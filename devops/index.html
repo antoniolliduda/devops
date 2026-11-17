@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guia rápido com os comandos básicos de Git, Docker, Linux e Kubernetes para quem está começando em DevOps.">
+  <title>Comandos | DevOps Cheat Sheet</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+<!--Cabeçalho com o logo e o menu de navegação (igual em todas as páginas)-->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html" title="Voltar para a tela principal">&gt;_ devops-cheatsheet</a>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html" class="ativo" aria-current="page">Comandos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Sugerir</a></li>
+        <li><button id="tema-btn" type="button">🌙 Escuro</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!--Apresentação: título, frase digitada pelo JS, números e a imagem do fluxo DevOps-->
+  <section class="hero-home">
+    <h1>Comandos DevOps na ponta dos dedos</h1>
+    <p class="digitando" aria-hidden="true">$ <span id="digitando"></span><span class="cursor">|</span></p>
+    <p>Um guia rápido com os comandos básicos de Git, Docker, Linux e Kubernetes, ideal para quem está começando.</p>
+    <div class="stats">
+      <div><strong id="total-cmds">0</strong><span>comandos</span></div>
+      <div><strong>4</strong><span>ferramentas</span></div>
+      <div><strong>1 clique</strong><span>para copiar</span></div>
+    </div>
+    <a class="btn-link" href="#titulo-cmds">Ver comandos ↓</a>
+    <img src="img/pipeline.svg" alt="Fluxo DevOps: código no Git, container no Docker e execução no Kubernetes">
+  </section>
+
+  <!--Lista de comandos: busca + botões de filtro + grade de cards (o filtro é feito no script.js)-->
+  <section aria-labelledby="titulo-cmds">
+    <h2 id="titulo-cmds">Comandos</h2>
+
+    <label for="busca" class="sr">Buscar comando</label>
+    <input type="search" id="busca" placeholder="Buscar (ex: logs, branch, pods)...">
+
+    <!--O data-filtro de cada botão tem que bater com o data-categoria dos cards-->
+    <div class="filtros" role="group" aria-label="Filtrar por ferramenta">
+      <button type="button" data-filtro="todos" class="ativo" aria-pressed="true">Todos</button>
+      <button type="button" data-filtro="git" aria-pressed="false">Git</button>
+      <button type="button" data-filtro="docker" aria-pressed="false">Docker</button>
+      <button type="button" data-filtro="linux" aria-pressed="false">Linux</button>
+      <button type="button" data-filtro="kubectl" aria-pressed="false">Kubernetes</button>
+    </div>
+
+    <div class="grade">
+      <!--Comandos de Git (controle de versão)-->
+      <article class="item" data-categoria="git">
+        <span class="tag">Git</span>
+        <h3>git init</h3>
+        <p>Cria um repositório novo na pasta atual.</p>
+        <div class="cmd">
+          <code>git init</code>
+          <button type="button" class="copiar" aria-label="Copiar git init">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="git">
+        <span class="tag">Git</span>
+        <h3>git clone</h3>
+        <p>Baixa um repositório do GitHub.</p>
+        <div class="cmd">
+          <code>git clone https://github.com/usuario/repo.git</code>
+          <button type="button" class="copiar" aria-label="Copiar git clone">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="git">
+        <span class="tag">Git</span>
+        <h3>git status</h3>
+        <p>Mostra o que mudou nos arquivos.</p>
+        <div class="cmd">
+          <code>git status</code>
+          <button type="button" class="copiar" aria-label="Copiar git status">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="git">
+        <span class="tag">Git</span>
+        <h3>git add</h3>
+        <p>Prepara os arquivos para o commit.</p>
+        <div class="cmd">
+          <code>git add .</code>
+          <button type="button" class="copiar" aria-label="Copiar git add">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="git">
+        <span class="tag">Git</span>
+        <h3>git commit</h3>
+        <p>Salva as mudanças com uma mensagem.</p>
+        <div class="cmd">
+          <code>git commit -m "minha mensagem"</code>
+          <button type="button" class="copiar" aria-label="Copiar git commit">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="git">
+        <span class="tag">Git</span>
+        <h3>git push</h3>
+        <p>Envia seus commits para o repositório remoto.</p>
+        <div class="cmd">
+          <code>git push origin main</code>
+          <button type="button" class="copiar" aria-label="Copiar git push">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="git">
+        <span class="tag">Git</span>
+        <h3>git pull</h3>
+        <p>Baixa e junta as mudanças do remoto.</p>
+        <div class="cmd">
+          <code>git pull origin main</code>
+          <button type="button" class="copiar" aria-label="Copiar git pull">Copiar</button>
+        </div>
+      </article>
+      <!--Comandos de Docker (containers)-->
+      <article class="item" data-categoria="docker">
+        <span class="tag">Docker</span>
+        <h3>docker run</h3>
+        <p>Cria e inicia um container a partir de uma imagem.</p>
+        <div class="cmd">
+          <code>docker run -d -p 8080:80 nginx</code>
+          <button type="button" class="copiar" aria-label="Copiar docker run">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="docker">
+        <span class="tag">Docker</span>
+        <h3>docker build</h3>
+        <p>Constrói uma imagem a partir do Dockerfile.</p>
+        <div class="cmd">
+          <code>docker build -t minha-app .</code>
+          <button type="button" class="copiar" aria-label="Copiar docker build">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="docker">
+        <span class="tag">Docker</span>
+        <h3>docker ps</h3>
+        <p>Lista os containers em execução.</p>
+        <div class="cmd">
+          <code>docker ps</code>
+          <button type="button" class="copiar" aria-label="Copiar docker ps">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="docker">
+        <span class="tag">Docker</span>
+        <h3>docker images</h3>
+        <p>Lista as imagens baixadas.</p>
+        <div class="cmd">
+          <code>docker images</code>
+          <button type="button" class="copiar" aria-label="Copiar docker images">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="docker">
+        <span class="tag">Docker</span>
+        <h3>docker stop</h3>
+        <p>Para um container.</p>
+        <div class="cmd">
+          <code>docker stop nome-container</code>
+          <button type="button" class="copiar" aria-label="Copiar docker stop">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="docker">
+        <span class="tag">Docker</span>
+        <h3>docker logs</h3>
+        <p>Mostra a saída de um container.</p>
+        <div class="cmd">
+          <code>docker logs nome-container</code>
+          <button type="button" class="copiar" aria-label="Copiar docker logs">Copiar</button>
+        </div>
+      </article>
+      <!--Comandos básicos de Linux (terminal)-->
+      <article class="item" data-categoria="linux">
+        <span class="tag">Linux</span>
+        <h3>ls</h3>
+        <p>Lista os arquivos da pasta.</p>
+        <div class="cmd">
+          <code>ls -la</code>
+          <button type="button" class="copiar" aria-label="Copiar ls">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="linux">
+        <span class="tag">Linux</span>
+        <h3>cd</h3>
+        <p>Muda de pasta.</p>
+        <div class="cmd">
+          <code>cd /caminho/da/pasta</code>
+          <button type="button" class="copiar" aria-label="Copiar cd">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="linux">
+        <span class="tag">Linux</span>
+        <h3>pwd</h3>
+        <p>Mostra em qual pasta você está.</p>
+        <div class="cmd">
+          <code>pwd</code>
+          <button type="button" class="copiar" aria-label="Copiar pwd">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="linux">
+        <span class="tag">Linux</span>
+        <h3>mkdir</h3>
+        <p>Cria uma pasta nova.</p>
+        <div class="cmd">
+          <code>mkdir minha-pasta</code>
+          <button type="button" class="copiar" aria-label="Copiar mkdir">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="linux">
+        <span class="tag">Linux</span>
+        <h3>cat</h3>
+        <p>Mostra o conteúdo de um arquivo.</p>
+        <div class="cmd">
+          <code>cat arquivo.txt</code>
+          <button type="button" class="copiar" aria-label="Copiar cat">Copiar</button>
+        </div>
+      </article>
+      <!--Comandos de Kubernetes (kubectl)-->
+      <article class="item" data-categoria="kubectl">
+        <span class="tag">Kubernetes</span>
+        <h3>kubectl get pods</h3>
+        <p>Lista os pods do cluster.</p>
+        <div class="cmd">
+          <code>kubectl get pods</code>
+          <button type="button" class="copiar" aria-label="Copiar kubectl get pods">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="kubectl">
+        <span class="tag">Kubernetes</span>
+        <h3>kubectl apply</h3>
+        <p>Aplica um arquivo YAML no cluster.</p>
+        <div class="cmd">
+          <code>kubectl apply -f deploy.yaml</code>
+          <button type="button" class="copiar" aria-label="Copiar kubectl apply">Copiar</button>
+        </div>
+      </article>
+      <article class="item" data-categoria="kubectl">
+        <span class="tag">Kubernetes</span>
+        <h3>kubectl logs</h3>
+        <p>Mostra os logs de um pod.</p>
+        <div class="cmd">
+          <code>kubectl logs nome-pod</code>
+          <button type="button" class="copiar" aria-label="Copiar kubectl logs">Copiar</button>
+        </div>
+      </article>
+    </div>
+
+    <!--Aparece só quando a busca/filtro não encontra nada-->
+    <p id="vazio">Nenhum comando encontrado.</p>
+  </section>
+
+</main>
+
+<!--Rodapé-->
+<footer class="site-footer">
+  <p>&copy; 2026 DevOps Cheat Sheet — Projeto acadêmico de desenvolvimento web.</p>
+</footer>
+
+</body>
+</html>

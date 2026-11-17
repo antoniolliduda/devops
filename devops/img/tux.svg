@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360" role="img" aria-label="Pinguim Tux">
+<ellipse cx="150" cy="190" rx="105" ry="145" fill="#1c1c1c"/>
+<ellipse cx="150" cy="215" rx="70" ry="105" fill="#fff"/>
+<circle cx="120" cy="105" r="16" fill="#fff"/><circle cx="180" cy="105" r="16" fill="#fff"/>
+<circle cx="124" cy="108" r="7" fill="#000"/><circle cx="176" cy="108" r="7" fill="#000"/>
+<path d="M115 135q35-22 70 0q-10 28-35 28t-35-28z" fill="#f4b400"/>
+<ellipse cx="105" cy="335" rx="42" ry="16" fill="#f4b400"/><ellipse cx="195" cy="335" rx="42" ry="16" fill="#f4b400"/>
+<path d="M50 190q-35 50-5 95q20-40 30-80z" fill="#1c1c1c"/><path d="M250 190q35 50 5 95q-20-40-30-80z" fill="#1c1c1c"/>
+</svg>

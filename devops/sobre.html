@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Por que este guia de comandos DevOps foi criado e o que cada ferramenta faz.">
+  <title>Sobre | DevOps Cheat Sheet</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+<!--Cabeçalho com o logo e o menu de navegação (igual em todas as páginas)-->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html" title="Voltar para a tela principal">&gt;_ devops-cheatsheet</a>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Comandos</a></li>
+        <li><a href="sobre.html" class="ativo" aria-current="page">Sobre</a></li>
+        <li><a href="contato.html">Sugerir</a></li>
+        <li><button id="tema-btn" type="button">🌙 Escuro</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Sobre o projeto</h1>
+
+  <!--Imagem do terminal ao lado do texto (flex em linha no desktop, em coluna no celular)-->
+  <section class="hero">
+    <img src="img/terminal.svg" alt="Terminal com comandos de exemplo">
+    <div>
+      <h2>Por que este site?</h2>
+      <p>Comecei o estágio de DevOps sem ter muito conhecimento e acredito que, para as próximas pessoas que passarem pela mesma experiência, ter um site objetivo e fácil de entender, que mostre os comandos do dia a dia, vai facilitar bastante. Por isso decidi criar este site e aproveitar para este trabalho da escola, que também me ajuda a estudar front-end (HTML, CSS e JavaScript) e a entender melhor o meu trabalho de DevOps, no back-end.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Como usar</h2>
+    <p>Na página de comandos, use a busca ou os botões de filtro e clique em "Copiar" para levar o comando ao seu terminal. O botão de tema alterna entre claro e escuro.</p>
+  </section>
+
+  <!--Um card para cada ferramenta usada no guia-->
+  <section aria-labelledby="titulo-ferr">
+    <h2 id="titulo-ferr">As ferramentas</h2>
+    <p>Uma explicação rápida de cada ferramenta que aparece no guia:</p>
+    <div class="ferramentas">
+      <article class="ferramenta">
+        <span class="icone" aria-hidden="true">🌿</span>
+        <h3>Git</h3>
+        <p>Sistema de controle de versão. Guarda o histórico do código, permite voltar no tempo e trabalhar em equipe usando branches. Costuma ser usado junto com GitHub ou GitLab.</p>
+      </article>
+      <article class="ferramenta">
+        <span class="icone" aria-hidden="true">🐳</span>
+        <h3>Docker</h3>
+        <p>Empacota a aplicação com tudo que ela precisa (código, bibliotecas, configurações) em um container, que roda igual em qualquer máquina.</p>
+      </article>
+      <article class="ferramenta">
+        <span class="icone dica" data-dica="Tux, o mascote do Linux" aria-hidden="true">🐧</span>
+        <h3>Linux</h3>
+        <p>Sistema operacional presente na maioria dos servidores. No dia a dia de DevOps, o terminal Linux é a principal ferramenta de trabalho.</p>
+      </article>
+      <article class="ferramenta">
+        <span class="icone" aria-hidden="true">☸️</span>
+        <h3>Kubernetes</h3>
+        <p>Orquestrador de containers. Gerencia vários containers em vários servidores: sobe, escala e reinicia as aplicações automaticamente.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<!--Rodapé-->
+<footer class="site-footer">
+  <p>&copy; 2026 DevOps Cheat Sheet — Projeto acadêmico de desenvolvimento web.</p>
+</footer>
+
+</body>
+</html>

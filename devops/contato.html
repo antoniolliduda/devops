@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Envie a sugestão de um comando DevOps para entrar no guia.">
+  <title>Sugerir | DevOps Cheat Sheet</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+<!--Cabeçalho com o logo e o menu de navegação (igual em todas as páginas)-->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html" title="Voltar para a tela principal">&gt;_ devops-cheatsheet</a>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Comandos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html" class="ativo" aria-current="page">Sugerir</a></li>
+        <li><button id="tema-btn" type="button">🌙 Escuro</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Sugerir um comando</h1>
+
+  <section aria-labelledby="titulo-form">
+    <h2 id="titulo-form" class="sr">Formulário de sugestão</h2>
+    <!--Passando o mouse (ou focando) no Tux aparece o nome dele-->
+    <span class="dica dica-tux" data-dica="Tux, o mascote do Linux" tabindex="0">
+      <img src="img/tux.svg" alt="Tux, o pinguim mascote do Linux" class="tux">
+    </span>
+
+    <form id="form-contato" novalidate>
+
+      <!--Campo de texto-->
+      <div class="campo">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" autocomplete="name">
+        <span class="erro"></span>
+      </div>
+
+      <!--Campo de e-mail-->
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="email">
+        <span class="erro"></span>
+      </div>
+
+      <!--Lista de seleção-->
+      <div class="campo">
+        <label for="ferramenta">Ferramenta</label>
+        <select id="ferramenta" name="ferramenta">
+          <option value="">Selecione...</option>
+          <option>Git</option>
+          <option>Docker</option>
+          <option>Linux</option>
+          <option>kubectl</option>
+          <option>Outra</option>
+        </select>
+        <span class="erro"></span>
+      </div>
+
+      <!--Botões de rádio (só um pode ficar marcado)-->
+      <fieldset class="campo">
+        <legend>Nível</legend>
+        <div class="opcoes">
+          <label><input type="radio" name="nivel" value="iniciante"> Iniciante</label>
+          <label><input type="radio" name="nivel" value="intermediario"> Intermediário</label>
+          <label><input type="radio" name="nivel" value="avancado"> Avançado</label>
+        </div>
+        <span class="erro"></span>
+      </fieldset>
+
+      <!--Área de texto maior-->
+      <div class="campo">
+        <label for="descricao">Comando e para que serve (Pelo menos 10 caracteres)</label>
+        <textarea id="descricao" name="descricao" rows="4"></textarea>
+        <span class="erro"></span>
+      </div>
+
+      <!--Caixa de seleção (checkbox)-->
+      <div class="campo">
+        <label><input type="checkbox" name="termos"> Aceito os termos de uso</label>
+        <span class="erro"></span>
+      </div>
+
+      <button type="submit" class="btn">Enviar sugestão</button>
+
+      <!--Mensagem de sucesso ou erro depois de enviar-->
+      <div id="feedback" role="alert"></div>
+    </form>
+  </section>
+</main>
+
+<!--Rodapé-->
+<footer class="site-footer">
+  <p>&copy; 2026 DevOps Cheat Sheet — Projeto acadêmico de desenvolvimento web.</p>
+</footer>
+
+</body>
+</html>

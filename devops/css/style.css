@@ -1,0 +1,548 @@
+/*Variáveis de cor: O tema escuro é o padrão (:root)*/
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --primary: #58a6ff;
+  --accent: #3fb950;
+  --border: #30363d;
+  --code: #010409;
+  --code-text: #7ee787;
+}
+
+/*Tema claro: o JS coloca data-theme="light" no <html> quando clica no botão*/
+[data-theme="light"] {
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --text: #1f2328;
+  --muted: #57606a;
+  --primary: #0969da;
+  --accent: #1a7f37;
+  --border: #d0d7de;
+  --code: #0d1117;
+  --code-text: #7ee787;
+}
+
+
+/*Base/reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  /* Cor de fundo do tema + padrão suave com os símbolos de Git,
+     Docker, Linux e Kubernetes */
+  background-color: var(--bg);
+  background-image: url("../img/fundo.svg");
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s, color 0.3s;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+h1,
+h2 {
+  margin-bottom: 0.6rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+/*Esconde o texto só visualmente, mas o leitor de tela
+   ainda lê (uso nos labels que não aparecem).*/
+.sr {
+  position: absolute;
+  left: -9999px;
+}
+
+
+/*Cabeçalho e menu*/
+.site-header {
+  background: var(--code);
+  color: #fff;
+  padding: 1rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.logo {
+  font-family: monospace;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--code-text);
+  text-decoration: none;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  align-items: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+/*A classe .ativo marca a página em que o usuário está */
+nav a:hover,
+nav a.ativo {
+  background: var(--accent);
+}
+
+#tema-btn {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+
+/*Página "Sobre": imagem + texto lado a lado*/
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/*min-width: 0 evita que a imagem estoure o espaço do flex*/
+.hero > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+}
+
+.hero p {
+  color: var(--muted);
+}
+
+.ferramentas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/*Dois cards por linha:*/
+.ferramenta {
+  flex: 0 0 calc((100% - 1rem) / 2);
+  min-width: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.ferramenta p {
+  color: var(--muted);
+}
+
+.icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: 2rem;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+
+
+/*Página inicial:*/
+.hero-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.hero-home > p {
+  color: var(--muted);
+  max-width: 600px;
+}
+
+/*Linha com o efeito de digitação*/
+.hero-home .digitando {
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: var(--accent);
+  min-height: 1.8rem;
+}
+
+.cursor {
+  animation: piscar 1s steps(1) infinite;
+}
+
+@keyframes piscar {
+  50% {
+    opacity: 0;
+  }
+}
+
+.hero-home img {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 0.5rem;
+}
+
+/*Os três "números" da home*/
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+}
+
+.stats strong {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.stats span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.btn-link {
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+}
+
+
+/*Busca, filtros e grade de comandos*/
+#busca {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.filtros {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.filtros button {
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--text);
+  border-radius: 20px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.filtros button.ativo {
+  background: var(--primary);
+  color: #fff;
+}
+
+/*Grade feita com flexbox:*/
+.grade {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.item {
+  flex: 0 0 calc((100% - 2rem) / 3);
+  min-width: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+/*O filtro do JS só liga/desliga essa classe*/
+.item.oculto {
+  display: none;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0 0.5rem;
+  border-radius: 10px;
+}
+
+.item p {
+  color: var(--muted);
+  margin: 0.3rem 0;
+}
+
+/*Caixinha escura que parece um terminal, com o botão de copiar*/
+.cmd {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background: var(--code);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+}
+
+.cmd code {
+  flex: 1;
+  color: var(--code-text);
+  font-family: monospace;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.copiar {
+  background: var(--primary);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+}
+
+.copiar.ok {
+  background: var(--accent);
+}
+
+/*Mensagem de "nada encontrado":*/
+#vazio {
+  display: none;
+  color: var(--muted);
+}
+
+
+/*Formulário de sugestão*/
+form {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border: 0;
+}
+
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+/*Radio e checkbox*/
+input[type="radio"],
+input[type="checkbox"] {
+  padding: 0;
+  accent-color: var(--accent);
+}
+
+.opcoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.opcoes label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/*Borda vermelha quando o JS marca o campo como inválido*/
+input.invalido,
+select.invalido,
+textarea.invalido {
+  border-color: #cf222e;
+}
+
+.erro {
+  color: #cf222e;
+  font-size: 0.85rem;
+  min-height: 1em;
+}
+
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  padding: 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+}
+
+/*Caixa de feedback (sucesso ou erro), escondida até o JS usar*/
+#feedback {
+  padding: 0.8rem;
+  border-radius: 6px;
+  display: none;
+}
+
+#feedback.sucesso {
+  display: block;
+  background: #dafbe1;
+  color: #116329;
+}
+
+#feedback.falha {
+  display: block;
+  background: #ffebe9;
+  color: #82071e;
+}
+
+.tux {
+  height: 200px;
+  width: auto;
+}
+
+
+/*Dica que aparece quando passa o mouse no Tux (mascote do Linux)*/
+.dica {
+  position: relative;
+}
+
+/*O texto da dica vem do atributo data-dica do HTML*/
+.dica::after {
+  content: attr(data-dica);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  background: var(--code);
+  color: #fff;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 5;
+}
+
+.dica:hover::after,
+.dica:focus::after {
+  opacity: 1;
+}
+
+/*Na imagem do Tux da página de contato a dica fica centralizada */
+.dica-tux {
+  display: table;
+  margin: 0 auto 1rem;
+}
+
+.dica-tux::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/*Rodapé*/
+.site-footer {
+  background: var(--code);
+  color: #8b949e;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+
+/*Tablet:*/
+@media (max-width: 900px) {
+  .item {
+    flex-basis: calc((100% - 1rem) / 2);
+  }
+}
+
+/*Celular:*/
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .header-inner,
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Celular pequeno:*/
+@media (max-width: 600px) {
+  .item,
+  .ferramenta {
+    flex-basis: 100%;
+  }
+}

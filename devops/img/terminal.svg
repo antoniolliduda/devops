@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-label="Janela de terminal">
+<rect width="600" height="360" rx="14" fill="#0d1117"/>
+<rect width="600" height="36" rx="14" fill="#21262d"/>
+<circle cx="24" cy="18" r="7" fill="#ff5f56"/><circle cx="48" cy="18" r="7" fill="#ffbd2e"/><circle cx="72" cy="18" r="7" fill="#27c93f"/>
+<g font-family="monospace" font-size="20" fill="#7ee787">
+<text x="24" y="85">$ git commit -m "deploy"</text>
+<text x="24" y="125" fill="#c9d1d9">[main 3f2a9c1] deploy</text>
+<text x="24" y="175">$ docker build -t app .</text>
+<text x="24" y="215" fill="#c9d1d9">Successfully built app</text>
+<text x="24" y="265">$ kubectl get pods</text>
+<text x="24" y="305" fill="#58a6ff">app-7d9f   1/1   Running</text>
+</g></svg>
